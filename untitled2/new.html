@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="task">
+<ol id="lis"></ol>
+<button id="abtn">ADD</button>
+<button id="dbtn">DELETE</button>
+<button id="dbatn">DELETE ALL</button>
+<script>
+    const addTask = document.getElementById('task');
+    const listview = document.getElementById('lis');
+    const addBtn = document.getElementById('abtn');
+    const delBtn = document.getElementById('dbtn');
+    const delallBtn = document.getElementById('dbatn');
+    addBtn.addEventListener('click',function(){
+
+        if(addTask.value!==''){
+            const list = document.createElement("li");
+            list.innerText=addTask.value;
+            list.classList; 
+            listview.appendChild(list);
+            addTask.value ='';
+        }
+    });
+
+    delBtn.addEventListener('click',function (){
+
+        if(listview.lastElementChild){
+            listview.removeChild(listview.lastElementChild);
+        }
+    });
+
+    delallBtn.addEventListener('click',function (){
+
+        listview.innerHTML=" ";
+    });
+</script>
+</body>
+</html>

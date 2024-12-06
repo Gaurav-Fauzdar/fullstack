@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+      body{  display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #222;
+          height: 100vh;
+      }
+
+      .container {
+          display: flex;
+          align-items: center;
+          overflow: hidden;
+          height: 50vh;
+          width: 50%;
+      }
+      .faceman {
+          position: relative;
+          background: transparent;
+          z-index: 1;
+
+          &::before,
+          &::after {
+              position: absolute;
+              top: -35px;
+              display: block;
+              border-radius: 50%;
+              content: "";
+              height: 0px;
+              width: 0px;
+          }
+
+          &::before {
+              animation: face-top .5s ease infinite;
+              border: 35px solid #FFCC00;
+              border-left-color: transparent;
+              border-bottom-color: transparent;
+          }
+
+          &::after {
+              animation: face-down .5s ease infinite;
+              border: 35px solid #FFCC00;
+              border-right-color: transparent;
+              border-top-color: transparent;
+          }
+      }
+
+      .eye {
+          position: absolute;
+          z-index: 2;
+          top: -30px;
+          left: 35px;
+          width: 16px;
+          height: 16px;
+          background: black;
+          border-radius: 50%;
+          animation: blink 3s infinite ;
+      }
+      .moving_food{
+          display: flex;
+          justify-content: space-around;
+          animation: eating_path .5s linear infinite;
+          width: 100%;
+
+          &::before{
+              background-color: #fff;
+              border-radius: 50%;
+              content: "";
+              width: 1rem;
+              height: 1rem;
+          }
+      }
+
+      @keyframes eating_path {
+          0%{
+              transform: translateX(50%);
+          }
+          100%{
+              transform: translateX(-50%);
+          }
+      }
+
+      @keyframes face-top {
+          0%,100%{transform: rotate(-45deg)}
+          50%{transform: rotate(-80deg)}
+
+      }
+      @keyframes face-down {
+          0%,100%{transform: rotate(-40deg)}
+          50%{transform: rotate(-0deg)}
+      }
+      @keyframes blink {
+          0%; 10%; 50%; 60%; 100%;{ height: 16px; }
+      5%, 55% {height: 4px}
+
+      }
+
+  </style>
+</head>
+<body>
+<main class="container">
+  <div class="faceman">
+    <div class="eye">
+    </div>
+  </div>
+  <div class="moving_food"></div>
+  <div class="moving_food"></div>
+  <div class="moving_food"></div>
+  <div class="moving_food"></div>
+  <div class="moving_food"></div>
+</main>
+
+</body>
+</html>

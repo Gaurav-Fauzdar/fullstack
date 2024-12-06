@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+      body {
+          margin: 0;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #000;
+      }
+
+      .ball {
+          width: 50px;
+          height: 50px;
+          background-color: bl;
+          border-radius: 50%;
+          position: relative;
+          animation: bounce 10000ms infinite ;
+      }
+      .cloud{
+          position: fixed;
+          background-color: aquamarine;
+      }
+
+      @keyframes bounce {
+          0%, 100% {
+              background-color: cyan;
+              transform: translateY(290px);
+              animation-timing-function: ease-in;
+          }
+          50% {
+              background-color: greenyellow;
+              transform: translateY(-300px);
+              animation-timing-function: ease-out;
+          }
+      }
+
+  </style>
+</head>
+<body>
+<div class="ball"></div>
+  <div class="cloud"></div>
+
+
+</body>
+</html>
